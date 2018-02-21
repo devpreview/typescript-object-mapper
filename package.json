@@ -1,0 +1,31 @@
+{
+  "name": "typescript-object-mapper",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "A TypeScript library to serialize and deserialize JSON objects",
+  "keywords": [
+    "JSON",
+    "JSON Serialize",
+    "JSON Deserialize",
+    "JsonProperty",
+    "DTO",
+    "Data Transfer Objects",
+    "Jackson",
+    "Object mapper"
+  ],
+  "author": {
+    "name": "Alexey Savchuk",
+    "email": "sabo@devpreview.ru"
+  },
+  "homepage": "https://github.com/devpreview/typescript-object-mapper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devpreview/typescript-object-mapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devpreview/typescript-object-mapper/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+  }
+}
