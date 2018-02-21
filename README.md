@@ -1,0 +1,1 @@
+# typescript-object-mapper
