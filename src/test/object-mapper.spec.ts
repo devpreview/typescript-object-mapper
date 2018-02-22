@@ -4,4 +4,5 @@ class TestClass {
     //
 }
 
-ObjectMapper.deserialize<TestClass>(TestClass, '{}');
+let obj = ObjectMapper.deserialize<TestClass>(TestClass, '{}');
+ObjectMapper.serialize(obj);
