@@ -1,6 +1,7 @@
 {
   "name": "typescript-object-mapper",
   "version": "0.0.1",
+  "deprecated": false,
   "license": "MIT",
   "description": "A TypeScript library to serialize and deserialize JSON objects",
   "keywords": [
@@ -26,6 +27,8 @@
     "url": "https://github.com/devpreview/typescript-object-mapper/issues"
   },
   "main": "index.js",
-  "scripts": {
+  "scripts": {},
+  "devDependencies": {
+    "typescript": "2.7.2"
   }
 }

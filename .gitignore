@@ -1,0 +1,7 @@
+# Ignore IDEA project files
+/.idea/
+/typescript-object-mapper.iml
+
+# npm
+/node_modules/
+/package-lock.json
