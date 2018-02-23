@@ -26,7 +26,8 @@
   "bugs": {
     "url": "https://github.com/devpreview/typescript-object-mapper/issues"
   },
-  "main": "index.js",
+  "main": "./lib/main.js",
+  "types": "./lib/main.d.ts",
   "scripts": {
     "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
     "test": "npm run test:jasmine-ts",

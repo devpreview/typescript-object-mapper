@@ -1,6 +1,11 @@
 const helpers = require('./helpers');
 
 /**
+ * Webpack plugins
+ */
+// ...
+
+/**
  * Webpack configuration
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
@@ -93,7 +98,13 @@ module.exports = (options) => {
          *
          * See: http://webpack.github.io/docs/configuration.html#plugins
          */
-        plugins: [],
+        plugins: [
+            /**
+             * Generate single TypeScript *.d.ts declaration file
+             *
+             * See: https://github.com/TypeStrong/ts-loader#declarations-dts
+             */
+        ],
 
         /**
          * Developer tool to enhance debugging
