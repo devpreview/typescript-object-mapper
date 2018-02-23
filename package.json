@@ -1,6 +1,7 @@
 {
   "name": "typescript-object-mapper",
   "version": "0.0.1",
+  "deprecated": false,
   "license": "MIT",
   "description": "A TypeScript library to serialize and deserialize JSON objects",
   "keywords": [
@@ -27,5 +28,19 @@
   },
   "main": "index.js",
   "scripts": {
+    "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
+    "test": "npm run test:jasmine-ts",
+    "build": "webpack --config config/webpack.config.js --progress --profile --bail",
+    "clean": "rimraf -- dist",
+    "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.8.6",
+    "@types/node": "9.4.6",
+    "jasmine-ts": "0.2.1",
+    "rimraf": "2.6.2",
+    "ts-loader": "3.5.0",
+    "typescript": "2.7.2",
+    "webpack": "3.11.0"
   }
 }
