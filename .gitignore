@@ -5,3 +5,6 @@
 # npm
 /node_modules/
 /package-lock.json
+
+# distribution files
+/dist/
