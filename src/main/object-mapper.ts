@@ -1,4 +1,5 @@
 import { Type } from "./type";
+import { ObjectMapperError } from "./object-mapper-error";
 
 export class ObjectMapper {
 
@@ -72,7 +73,17 @@ export class ObjectMapper {
     public deserialize<T, J>(type: Type<T>, json: J): T;
     public deserialize<T, J>(type: Type<T>, json: string | J): T {
         if (typeof json == 'string') {
-            return this.deserializeObject<T, Object>(type, JSON.parse(json));
+            let _json: any;
+            try {
+                _json = JSON.parse(json);
+            } catch (e) {
+                if (e instanceof SyntaxError) {
+                    throw new ObjectMapperError('JSON syntax error: ' + e.message, e);
+                } else {
+                    throw new ObjectMapperError('Unknown error', e);
+                }
+            }
+            return this.deserializeObject<T, Object>(type, _json);
         } else {
             return this.deserializeObject<T, J>(type, json);
         }
@@ -82,7 +93,17 @@ export class ObjectMapper {
     public deserializeArray<T, J>(type: Type<T>, json: J[]): T[];
     public deserializeArray<T, J>(type: Type<T>, json: string | J[]): T[] {
         if (typeof json == 'string') {
-            return JSON.parse(json).map((json: Object) => this.deserializeObject<T, Object>(type, json));
+            let _json: any;
+            try {
+                _json = JSON.parse(json);
+            } catch (e) {
+                if (e instanceof SyntaxError) {
+                    throw new ObjectMapperError('JSON syntax error: ' + e.message, e);
+                } else {
+                    throw new ObjectMapperError('Unknown error', e);
+                }
+            }
+            return _json.map((json: Object) => this.deserializeObject<T, Object>(type, json));
         } else {
             return json.map((json) => this.deserializeObject<T, J>(type, json));
         }

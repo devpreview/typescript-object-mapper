@@ -1,4 +1,5 @@
 import { ObjectMapper } from "../main/object-mapper";
+import { ObjectMapperError } from "../main/object-mapper-error";
 
 describe('Testing ObjectMapper instantiation', () => {
 
@@ -42,6 +43,38 @@ describe('Testing ObjectMapper instantiation', () => {
 
         expect(ObjectMapper.deserializeArray<ObjectClass>(ObjectClass, '[{}]') instanceof Array).toBeTruthy();
         expect(ObjectMapper.deserializeArray<ObjectClass, JsonClass>(ObjectClass, [new JsonClass('bar')]) instanceof Array).toBeTruthy();
+    });
+
+});
+
+describe('Testing errors', () => {
+
+    class ObjectClass {
+        public foo: string = 'bar';
+    }
+
+    it('Testing JSON errors', () => {
+        expect(() => {
+            ObjectMapper.deserialize(ObjectClass, '{');
+        }).toThrowError(ObjectMapperError);
+
+        expect(() => {
+            ObjectMapper.deserializeArray(ObjectClass, '{');
+        }).toThrowError(ObjectMapperError);
+
+        let error: ObjectMapperError | undefined;
+        try {
+            ObjectMapper.deserialize(ObjectClass, '{');
+        } catch (e) {
+            error = e;
+        }
+        expect(error instanceof ObjectMapperError).toBeTruthy();
+        if (error !== undefined) {
+            expect(error.name).toEqual(ObjectMapperError.name);
+            expect(error.message).toEqual('JSON syntax error: Unexpected end of JSON input');
+            expect(error.stack).toBeDefined();
+            expect(error.cause instanceof SyntaxError).toBeTruthy();
+        }
     });
 
 });
