@@ -26,8 +26,12 @@
   "bugs": {
     "url": "https://github.com/devpreview/typescript-object-mapper/issues"
   },
-  "main": "./dist/typescript-object-mapper.min.js",
+  "main": "./dist/typescript-object-mapper.umd.js",
+  "browser": "./dist/typescript-object-mapper.browser.min.js",
+  "module": "./dist/typescript-object-mapper.esm5.js",
+  "es2015": "./dist/typescript-object-mapper.esm2015.js",
   "types": "./dist/src/main/public_api.d.ts",
+  "unpkg": "./dist/typescript-object-mapper.min.js",
   "scripts": {
     "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
     "test": "npm run test:jasmine-ts",
@@ -35,6 +39,7 @@
     "clean": "rimraf -- dist typescript-object-mapper-*.tgz",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
   },
+  "bundleDependencies": false,
   "dependencies": {},
   "devDependencies": {
     "@types/jasmine": "2.8.6",
@@ -44,6 +49,10 @@
     "ts-loader": "3.5.0",
     "typescript": "2.7.2",
     "uglifyjs-webpack-plugin": "1.2.1",
-    "webpack": "3.11.0"
-  }
+    "webpack": "3.11.0",
+    "webpack-merge": "4.1.2"
+  },
+  "files": [
+    "dist"
+  ]
 }

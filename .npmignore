@@ -1,11 +1,3 @@
-# Ignore IDEA project files
-/.idea/
-/typescript-object-mapper.iml
-
-# npm
-/node_modules/
-/package-lock.json
-
 # source files
 /src/
 
@@ -14,6 +6,3 @@
 /jasmine.json
 /tsconfig.json
 /webpack.config.js
-
-# package
-/typescript-object-mapper-*.tgz
