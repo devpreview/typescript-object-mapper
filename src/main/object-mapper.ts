@@ -12,9 +12,18 @@ export class ObjectMapper {
     }
 
     public static serialize<T>(obj: T | T[]): string;
-    public static serialize<T>(obj: T | T[], asString: boolean): any;
-    public static serialize<T>(obj: T | T[], asString: boolean = true): any {
-        return this.getInstance().serialize<T>(obj, asString);
+    public static serialize<T, J>(obj: T, type: Type<J>): J;
+    public static serialize<T, J>(obj: T[], type: Type<J>): J[];
+    public static serialize<T, J>(obj: T | T[], type?: Type<J>): string | J | J[] {
+        if (type !== undefined) {
+            if (obj instanceof Array) {
+                return this.getInstance().serialize<T, J>(obj, type);
+            } else {
+                return this.getInstance().serialize<T, J>(obj, type);
+            }
+        } else {
+            return this.getInstance().serialize<T>(obj);
+        }
     }
 
     public static deserialize<T>(type: Type<T>, json: string): T;
@@ -33,13 +42,21 @@ export class ObjectMapper {
     }
 
     public serialize<T>(obj: T | T[]): string;
-    public serialize<T>(obj: T | T[], asString: boolean): any;
-    public serialize<T>(obj: T | T[], asString: boolean = true): any {
-        let result = {test: 'ok'};
-        if (asString) {
-            return JSON.stringify(result);
+    public serialize<T, J>(obj: T, type: Type<J>): J;
+    public serialize<T, J>(obj: T[], type: Type<J>): J[];
+    public serialize<T, J>(obj: T | T[], type?: Type<J>): string | J | J[] {
+        if (obj instanceof Array) {
+            if (type !== undefined) {
+                return [new type()];
+            } else {
+                return JSON.stringify([{test: 'ok'}]);
+            }
         } else {
-            return result;
+            if (type !== undefined) {
+                return new type();
+            } else {
+                return JSON.stringify({test: 'ok'});
+            }
         }
     }
 
