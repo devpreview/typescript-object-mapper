@@ -156,7 +156,8 @@ const commonConfig = (options = {}) => {
  */
 const browserConfig = webpackMerge(commonConfig({
     compilerOptions: {
-        "target": "ES3"
+        target: "ES3",
+        module: "commonjs"
     }
 }), {
     output: {
@@ -181,7 +182,8 @@ const browserConfig = webpackMerge(commonConfig({
  */
 const umdConfig = webpackMerge(commonConfig({
     compilerOptions: {
-        "target": "ES3"
+        target: "ES3",
+        module: "commonjs"
     }
 }), {
     output: {
@@ -253,7 +255,8 @@ module.exports = [
      */
     webpackMerge(commonConfig({
         compilerOptions: {
-            "target": "ES5"
+            target: "ES5",
+            module: "commonjs"
         }
     }), {
         output: {
@@ -274,7 +277,8 @@ module.exports = [
     webpackMerge(commonConfig({
         compilerOptions: {
             declaration: true,
-            "target": "ES2015"
+            target: "ES2015",
+            module: "ES2015"
         }
     }), {
         output: {
