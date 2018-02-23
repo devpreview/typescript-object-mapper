@@ -1,0 +1,8 @@
+# source files
+/src/
+
+# config
+/.travis.yml
+/jasmine.json
+/tsconfig.json
+/webpack.config.js
