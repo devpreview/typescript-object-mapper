@@ -1,6 +1,6 @@
 {
   "name": "typescript-object-mapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "deprecated": false,
   "license": "MIT",
   "description": "A TypeScript library to serialize and deserialize JSON objects",

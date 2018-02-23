@@ -192,7 +192,14 @@ const umdConfig = webpackMerge(commonConfig({
          *
          * See: https://webpack.js.org/configuration/output/#output-librarytarget
          */
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+
+        /**
+         * Configure which module or modules will be exposed via the libraryTarget.
+         *
+         * See: https://webpack.js.org/configuration/output/#output-libraryexport
+         */
+        libraryExport: 'ObjectMapper'
     }
 });
 
