@@ -2,22 +2,57 @@ import { Type } from "./type";
 
 export class ObjectMapper {
 
-    public static deserialize<T>(type: Type<T>, json: string): T;
-    public static deserialize<T, J>(type: Type<T>, json: J): T;
-    public static deserialize<T>(type: Type<T>, json: any): T {
-        return new type();
-    }
+    private static Instance: ObjectMapper;
 
-    public static deserializeArray<T>(type: Type<T>, json: string): T[];
-    public static deserializeArray<T, J>(type: Type<T>, json: J): T[];
-    public static deserializeArray<T>(type: Type<T>, json: any): T[] {
-        return [new type(), new type()];
+    protected static getInstance(): ObjectMapper {
+        if (!this.Instance) {
+            this.Instance = new ObjectMapper();
+        }
+        return this.Instance;
     }
 
     public static serialize<T>(obj: T): string;
     public static serialize<T>(obj: T, asString: boolean): any;
     public static serialize<T>(obj: T, asString: boolean = true): any {
-        return '';
+        return this.getInstance().serialize(obj, asString);
+    }
+
+    public static deserialize<T>(type: Type<T>, json: string): T;
+    public static deserialize<T, J>(type: Type<T>, json: J): T;
+    public static deserialize<T>(type: Type<T>, json: any): T {
+        return this.getInstance().deserialize(type, json);
+    }
+
+    public static deserializeArray<T>(type: Type<T>, json: string): T[];
+    public static deserializeArray<T, J>(type: Type<T>, json: J[]): T[];
+    public static deserializeArray<T>(type: Type<T>, json: any): T[] {
+        return this.getInstance().deserializeArray(type, json);
+    }
+
+    public constructor() {
+    }
+
+    public serialize<T>(obj: T): string;
+    public serialize<T>(obj: T, asString: boolean): any;
+    public serialize<T>(obj: T, asString: boolean = true): any {
+        let result = {test: 'ok'};
+        if (asString) {
+            return JSON.stringify(result);
+        } else {
+            return result;
+        }
+    }
+
+    public deserialize<T>(type: Type<T>, json: string): T;
+    public deserialize<T, J>(type: Type<T>, json: J): T;
+    public deserialize<T>(type: Type<T>, json: any): T {
+        return new type();
+    }
+
+    public deserializeArray<T>(type: Type<T>, json: string): T[];
+    public deserializeArray<T, J>(type: Type<T>, json: J[]): T[];
+    public deserializeArray<T>(type: Type<T>, json: any): T[] {
+        return [new type(), new type()];
     }
 
 }
