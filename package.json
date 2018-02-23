@@ -31,7 +31,7 @@
   "module": "./dist/typescript-object-mapper.esm5.js",
   "es2015": "./dist/typescript-object-mapper.esm2015.js",
   "types": "./dist/src/main/public_api.d.ts",
-  "unpkg": "./dist/typescript-object-mapper.min.js",
+  "unpkg": "./dist/typescript-object-mapper.umd.min.js",
   "scripts": {
     "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
     "test": "npm run test:jasmine-ts",
