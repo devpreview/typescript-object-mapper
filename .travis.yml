@@ -6,6 +6,8 @@ script:
   - npm test
   - npm run build
 
+after_success: npm run coverage
+
 notifications:
   email:
     on_success: change

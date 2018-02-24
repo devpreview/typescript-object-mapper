@@ -9,3 +9,7 @@
 # distribution files
 /dist/
 /ts-object-mapper-*.tgz
+
+# Coverage
+/.nyc_output/
+/coverage/

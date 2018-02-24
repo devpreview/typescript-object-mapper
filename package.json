@@ -33,11 +33,11 @@
   "types": "./dist/src/main/public_api.d.ts",
   "unpkg": "./dist/ts-object-mapper.umd.min.js",
   "scripts": {
-    "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
-    "test": "npm run test:jasmine-ts",
+    "test": "nyc -r lcov -e .ts -x \"*.spec.ts\" jasmine-ts --config=jasmine.json",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prebuild": "npm run clean",
     "build": "webpack --config webpack.config.js --progress --profile --bail",
-    "clean": "rimraf -- dist ts-object-mapper-*.tgz",
+    "clean": "rimraf -- dist ts-object-mapper-*.tgz .nyc_output coverage",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
   },
   "bundleDependencies": false,
@@ -45,7 +45,10 @@
   "devDependencies": {
     "@types/jasmine": "2.8.6",
     "@types/node": "8.9.4",
+    "coveralls": "3.0.0",
+    "jasmine-spec-reporter": "4.2.1",
     "jasmine-ts": "0.2.1",
+    "nyc": "11.4.1",
     "rimraf": "2.6.2",
     "ts-loader": "3.5.0",
     "typescript": "2.7.2",
