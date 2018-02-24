@@ -35,13 +35,13 @@
   "scripts": {
     "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
     "test": "npm run test:jasmine-ts",
+    "prebuild": "npm run clean",
     "build": "webpack --config webpack.config.js --progress --profile --bail",
     "clean": "rimraf -- dist ts-object-mapper-*.tgz",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
   },
   "bundleDependencies": false,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jasmine": "2.8.6",
     "@types/node": "8.9.4",

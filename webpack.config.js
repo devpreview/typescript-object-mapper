@@ -135,7 +135,7 @@ const commonConfig = (options = {}) => {
          * Include polyfills or mocks for various node stuff
          * Description: Node configuration
          *
-         * See: https://webpack.github.io/docs/configuration.html#node
+         * See: https://webpack.js.org/configuration/node/
          */
         "node": {
             "fs": "empty",
