@@ -1,5 +1,5 @@
 {
-  "name": "typescript-object-mapper",
+  "name": "ts-object-mapper",
   "version": "0.0.3",
   "deprecated": false,
   "license": "MIT",
@@ -18,25 +18,25 @@
     "name": "Alexey Savchuk",
     "email": "sabo@devpreview.ru"
   },
-  "homepage": "https://github.com/devpreview/typescript-object-mapper",
+  "homepage": "https://github.com/devpreview/ts-object-mapper",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devpreview/typescript-object-mapper.git"
+    "url": "git+https://github.com/devpreview/ts-object-mapper.git"
   },
   "bugs": {
-    "url": "https://github.com/devpreview/typescript-object-mapper/issues"
+    "url": "https://github.com/devpreview/ts-object-mapper/issues"
   },
-  "main": "./dist/typescript-object-mapper.umd.js",
-  "browser": "./dist/typescript-object-mapper.browser.min.js",
-  "module": "./dist/typescript-object-mapper.esm5.js",
-  "es2015": "./dist/typescript-object-mapper.esm2015.js",
+  "main": "./dist/ts-object-mapper.umd.js",
+  "browser": "./dist/ts-object-mapper.browser.min.js",
+  "module": "./dist/ts-object-mapper.esm5.js",
+  "es2015": "./dist/ts-object-mapper.esm2015.js",
   "types": "./dist/src/main/public_api.d.ts",
-  "unpkg": "./dist/typescript-object-mapper.umd.min.js",
+  "unpkg": "./dist/ts-object-mapper.umd.min.js",
   "scripts": {
     "test:jasmine-ts": "jasmine-ts --config=jasmine.json",
     "test": "npm run test:jasmine-ts",
     "build": "webpack --config webpack.config.js --progress --profile --bail",
-    "clean": "rimraf -- dist typescript-object-mapper-*.tgz",
+    "clean": "rimraf -- dist ts-object-mapper-*.tgz",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
   },
   "bundleDependencies": false,

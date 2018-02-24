@@ -53,7 +53,7 @@ const commonConfig = (options = {}) => {
          * See: http://webpack.github.io/docs/configuration.html#entry
          */
         entry: {
-            'typescript-object-mapper': helpers.root('src/main', 'object-mapper.ts')
+            'ts-object-mapper': helpers.root('src/main', 'object-mapper.ts')
         },
 
         /**
