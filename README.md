@@ -7,3 +7,7 @@
 [![npm](https://img.shields.io/npm/dt/ts-object-mapper.svg)](https://github.com/devpreview/ts-object-mapper/releases)
 
 # TypeScript Object Mapper
+
+## Related Projects
+- [TypeScript Language Service Plugin](https://github.com/devpreview/ts-object-mapper-plugin)
+- [Angular 2+ integration module](https://github.com/devpreview/ng-object-mapper)
