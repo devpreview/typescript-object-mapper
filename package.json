@@ -41,7 +41,6 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "ts-object-mapper-plugin": "^0.0"
   },
   "devDependencies": {
     "@types/jasmine": "2.8.6",

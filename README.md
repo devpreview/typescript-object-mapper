@@ -9,5 +9,5 @@
 # TypeScript Object Mapper
 
 ## Related Projects
-- [TypeScript Language Service Plugin](https://github.com/devpreview/ts-object-mapper-plugin)
+- [TypeScript Compiler Transformer for TypeScript Object Mapper](https://github.com/devpreview/ts-object-mapper-transformer)
 - [Angular 2+ integration module](https://github.com/devpreview/ng-object-mapper)
