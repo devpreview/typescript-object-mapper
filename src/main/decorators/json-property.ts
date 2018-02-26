@@ -37,7 +37,7 @@ export interface JsonPropertyMetadata {
  */
 export function JsonProperty(metadata?: JsonPropertyMetadata | string) {
     return (target: any, propertyKey: string) => {
-        console.log(target, propertyKey);
-        console.log(Reflect.ownKeys(target));
+        //console.log(target, propertyKey);
+        //console.log(Reflect.ownKeys(target));
     }
 }

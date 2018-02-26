@@ -18,6 +18,6 @@ describe('Testing JsonProperty decorator', () => {
 
     }
 
-    let t = new TestClass();
-    console.log(t);
+    //let t = new TestClass();
+    //console.log(t);
 });

@@ -8,7 +8,9 @@
     {
       "name": "jasmine-spec-reporter#SpecReporter",
       "options": {
-        "displayStacktrace": "all"
+        "suite": {
+          "displayNumber": true
+        }
       }
     }
   ]

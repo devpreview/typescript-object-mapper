@@ -78,3 +78,25 @@ describe('Testing errors', () => {
     });
 
 });
+
+describe('First tests', () => {
+
+    class SimpleRoster {
+        public name: string = 'John Doe';
+        public worksOnWeekend: boolean = true;
+        public numberOfHours: number = 4;
+    }
+
+    it('First serialize test', () => {
+        expect(ObjectMapper.serialize(new SimpleRoster())).toEqual('{"name":"John Doe","worksOnWeekend":true,"numberOfHours":4}');
+    });
+
+    it('First deserialize test', () => {
+        expect(ObjectMapper.deserialize(SimpleRoster, '{"name":"John Doe","worksOnWeekend":true,"numberOfHours":4}')).toEqual(jasmine.objectContaining({
+            name: 'John Doe',
+            worksOnWeekend: true,
+            numberOfHours: 4
+        }));
+    });
+
+});

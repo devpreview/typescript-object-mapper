@@ -109,12 +109,27 @@ export class ObjectMapper {
         }
     }
 
-    protected serializeObject<T, J>(obj: T, jtype: Type<J>): J {
-        return new jtype();
+    protected serializeObject<T extends Object, J extends Object>(obj: T, jtype: Type<J>): J {
+        let json = new jtype();
+        for (let key of Reflect.ownKeys(obj)) {
+            if (!Reflect.defineProperty(json, key, {
+                    configurable: false,
+                    enumerable: true,
+                    writable: true,
+                    value: Reflect.get(obj, key)
+                })) {
+                throw new ObjectMapperError('Can not define property "' + key.toString() + '" of object ' + obj.constructor.name);
+            }
+        }
+        return json;
     }
 
-    protected deserializeObject<T, J>(type: Type<T>, json: J): T {
-        return new type();
+    protected deserializeObject<T extends Object, J extends Object>(type: Type<T>, json: J): T {
+        let obj = new type();
+        for (let key of Reflect.ownKeys(obj)) {
+            Reflect.set(obj, key, Reflect.get(json, key));
+        }
+        return obj;
     }
 
 }
